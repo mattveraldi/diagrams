@@ -6,3 +6,6 @@ invariant(process.env.AUTH0_CLIENT_SECRET);
 invariant(process.env.AUTH0_DOMAIN);
 invariant(process.env.AUTH0_CALLBACK_URL);
 invariant(process.env.AUTH0_RETURN_TO_URL);
+invariant(process.env.SESSION_SECRET);
+invariant(process.env.SUCCESS_REDIRECT);
+invariant(process.env.FAILURE_REDIRECT);
