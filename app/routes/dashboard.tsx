@@ -15,18 +15,31 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export async function loader({ request }: LoaderArgs) {
-  const user = await authenticator.isAuthenticated(request, {
-    failureRedirect: process.env.FAILURE_REDIRECT as string,
-  });
+  // const user = await authenticator.isAuthenticated(request, {
+  //   failureRedirect: process.env.FAILURE_REDIRECT as string,
+  // });
 
-  return json({ user });
+  return json({
+    user: {
+      email: "mattveraldi@gmail.com",
+    },
+  });
 }
 
 export default function Index() {
   const loaderData = useLoaderData<typeof loader>();
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome {loaderData.user.email}</h1>
+    <div>
+      <h1 className="text-2xl">Dashboard</h1>
+      <div>
+        <article
+          style={{
+            maxWidth: 150,
+            minHeight: 150,
+            background: "rgba(0,0,0,.2)",
+          }}
+        ></article>
+      </div>
     </div>
   );
 }
