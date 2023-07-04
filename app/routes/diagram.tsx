@@ -3,6 +3,7 @@ import "reactflow/dist/style.css";
 import { ClientOnly } from "remix-utils";
 import { Palette } from "~/components/Palette";
 import { UserNode } from "~/components/node-types/ActorNode";
+import { DatabaseNode } from "~/components/node-types/DatabaseNode";
 import useStore from "~/hooks/useStore";
 
 export default function Diagram() {
@@ -24,6 +25,7 @@ export default function Diagram() {
 
 const nodeTypes: NodeTypes = {
   user: UserNode,
+  database: DatabaseNode,
 };
 function useFlow() {
   const { nodes, edges, onConnect, onEdgesChange, onNodesChange } = useStore();
