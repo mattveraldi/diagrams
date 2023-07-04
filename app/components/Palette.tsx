@@ -19,11 +19,10 @@ export function Palette() {
   };
 
   return (
-    <>
+    <div className="flex absolute bottom-4 right-1/2 translate-x-1/2 bg-inherit z-10 gap-4">
       {paletteItems.map((item) => (
         <Form
           onSubmit={onSubmit}
-          className="flex absolute bottom-4 right-1/2 bg-inherit z-10"
           method="post"
           name={item.action}
           key={item.action}
@@ -33,6 +32,6 @@ export function Palette() {
           </button>
         </Form>
       ))}
-    </>
+    </div>
   );
 }
