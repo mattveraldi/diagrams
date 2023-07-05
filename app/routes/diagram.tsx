@@ -1,32 +1,31 @@
 import ReactFlow, { Background, Controls, NodeTypes } from "reactflow";
 import "reactflow/dist/style.css";
-import { ClientOnly } from "remix-utils";
 import { Palette } from "~/components/Palette";
-import { UserNode } from "~/components/node-types/ActorNode";
-import { DatabaseNode } from "~/components/node-types/DatabaseNode";
+import { IconNode } from "~/components/node-types/IconNode";
+import { paletteItems } from "~/components/paletteItems";
 import useStore from "~/hooks/useStore";
 
 export default function Diagram() {
   const flowProps = useFlow();
   return (
-    <ClientOnly fallback={null}>
-      {() => (
-        <div style={{ width: "100vw", height: "100vh", padding: 0, margin: 0 }}>
-          <ReactFlow {...flowProps}>
-            <Background />
-            <Controls />
-            <Palette />
-          </ReactFlow>
-        </div>
-      )}
-    </ClientOnly>
+    <div style={{ width: "100vw", height: "100vh", padding: 0, margin: 0 }}>
+      <ReactFlow {...flowProps}>
+        <Background />
+        <Controls />
+        <Palette />
+      </ReactFlow>
+    </div>
   );
 }
 
-const nodeTypes: NodeTypes = {
-  user: UserNode,
-  database: DatabaseNode,
-};
+const nodeTypes: NodeTypes = {};
+// generate nodes from svg descriptor
+paletteItems.forEach((item) => {
+  nodeTypes[item.action] = () => (
+    <IconNode SVGIcon={item.svg} name={item.action} />
+  );
+});
+
 function useFlow() {
   const { nodes, edges, onConnect, onEdgesChange, onNodesChange } = useStore();
   return {
