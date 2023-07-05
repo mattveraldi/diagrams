@@ -8,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import "tippy.js/dist/tippy.css"; // optional
 import stylesheet from "~/tailwind.css";
 
 export const links: LinksFunction = () => [

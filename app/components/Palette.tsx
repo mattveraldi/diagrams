@@ -1,4 +1,5 @@
 import { Form } from "@remix-run/react";
+import Tippy from "@tippyjs/react";
 import { FormEventHandler } from "react";
 import useStore from "~/hooks/useStore";
 import { paletteItems } from "./paletteItems";
@@ -27,9 +28,11 @@ export function Palette() {
           name={item.action}
           key={item.action}
         >
-          <button type="submit" aria-label={item.label}>
-            {item.svg}
-          </button>
+          <Tippy content={item.label}>
+            <button type="submit" aria-label={item.label}>
+              {item.svg}
+            </button>
+          </Tippy>
         </Form>
       ))}
     </div>
