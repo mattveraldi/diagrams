@@ -25,11 +25,11 @@ export function Palette() {
         <Form
           onSubmit={onSubmit}
           method="post"
-          name={item.action}
-          key={item.action}
+          name={item.name}
+          key={item.name}
         >
-          <Tippy content={item.label}>
-            <button type="submit" aria-label={item.label}>
+          <Tippy content={item.description}>
+            <button type="submit" aria-label={item.description}>
               {item.svg}
             </button>
           </Tippy>

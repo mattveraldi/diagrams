@@ -9,45 +9,45 @@ import {
 } from "./svgs";
 
 interface Item {
-  action: string;
-  svg: React.ReactElement;
-  label: string;
+  name: string;
+  description: string;
+  svg: JSX.Element;
 }
 
 export const paletteItems: Item[] = [
   {
-    action: "user",
+    name: "user",
     svg: CreateUserSVG,
-    label: "create an user element",
+    description: "create an user element",
   },
   {
-    action: "database",
+    name: "database",
     svg: DatabaseSVG,
-    label: "create a database element",
+    description: "create a database element",
   },
   {
-    action: "mobile",
+    name: "mobile",
     svg: MobileSVG,
-    label: "create a mobile element",
+    description: "create a mobile element",
   },
   {
-    action: "desktop",
+    name: "desktop",
     svg: DesktopSVG,
-    label: "create a pc element",
+    description: "create a pc element",
   },
   {
-    action: "backend",
+    name: "backend",
     svg: BackendSVG,
-    label: "create a backend element",
+    description: "create a backend element",
   },
   {
-    action: "cloud",
+    name: "cloud",
     svg: CloudSVG,
-    label: "create a cloud element",
+    description: "create a cloud element",
   },
   {
-    action: "event",
+    name: "event",
     svg: EventSVG,
-    label: "create an event element",
+    description: "create an event element",
   },
 ];
