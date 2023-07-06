@@ -11,7 +11,8 @@ import {
   applyEdgeChanges,
   applyNodeChanges,
 } from "reactflow";
-import { create } from "zustand";
+import { StateCreator, create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 type RFState = {
   nodes: Node[];
@@ -22,8 +23,7 @@ type RFState = {
   addNode: (node: Node) => void;
 };
 
-// this is our useStore hook that we can use in our components to get parts of the store and call actions
-const useStore = create<RFState>((set, get) => ({
+const stateCreator: StateCreator<RFState> = (set, get) => ({
   nodes: [],
   edges: [],
   onNodesChange: (changes: NodeChange[]) => {
@@ -46,6 +46,14 @@ const useStore = create<RFState>((set, get) => ({
       nodes: get().nodes.concat(node),
     });
   },
-}));
+});
+
+// this is our useStore hook that we can use in our components to get parts of the store and call actions
+const useStore = create(
+  persist(stateCreator, {
+    name: "diagram",
+    storage: createJSONStorage(() => sessionStorage),
+  })
+);
 
 export default useStore;
