@@ -30,7 +30,7 @@ export function Palette() {
         >
           <Tippy content={item.description}>
             <button type="submit" aria-label={item.description}>
-              {item.svg}
+              <div dangerouslySetInnerHTML={{ __html: item.svg }}></div>
             </button>
           </Tippy>
         </Form>

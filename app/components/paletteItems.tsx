@@ -11,7 +11,7 @@ import {
 interface Item {
   name: string;
   description: string;
-  svg: JSX.Element;
+  svg: string;
 }
 
 export const paletteItems: Item[] = [

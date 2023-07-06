@@ -13,6 +13,21 @@ export default function Diagram() {
         <Background />
         <Controls />
         <Palette />
+        <span className="float-right mr-2 mt-2 z-10" aria-label="not saved">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            className="w-6 h-6 stroke-red-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+            />
+          </svg>
+        </span>
       </ReactFlow>
     </div>
   );
@@ -21,9 +36,7 @@ export default function Diagram() {
 const nodeTypes: NodeTypes = {};
 // generate nodes from svg descriptor
 paletteItems.forEach((item) => {
-  nodeTypes[item.action] = () => (
-    <IconNode SVGIcon={item.svg} name={item.action} />
-  );
+  nodeTypes[item.name] = () => <IconNode svg={item.svg} name={item.name} />;
 });
 
 function useFlow() {
