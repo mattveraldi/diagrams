@@ -2,7 +2,11 @@ import { Form } from "@remix-run/react";
 import Tippy from "@tippyjs/react";
 import { FormEventHandler } from "react";
 import useStore from "~/hooks/useStore";
-import { paletteItems } from "./paletteItems";
+import kit from "../mocks/kit.json";
+
+/**
+ * @TODO the kit should be taken from the user prefs for the current diagram
+ */
 
 export function Palette() {
   const store = useStore();
@@ -21,7 +25,7 @@ export function Palette() {
 
   return (
     <div className="flex absolute bottom-4 right-1/2 translate-x-1/2 bg-inherit z-10 gap-4">
-      {paletteItems.map((item) => (
+      {kit.map((item) => (
         <Form
           onSubmit={onSubmit}
           method="post"

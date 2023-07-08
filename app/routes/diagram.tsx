@@ -2,8 +2,8 @@ import ReactFlow, { Background, Controls, NodeTypes } from "reactflow";
 import "reactflow/dist/style.css";
 import { Palette } from "~/components/Palette";
 import { IconNode } from "~/components/node-types/IconNode";
-import { paletteItems } from "~/components/paletteItems";
 import useStore from "~/hooks/useStore";
+import kit from "../mocks/kit.json";
 
 export default function Diagram() {
   const flowProps = useFlow();
@@ -35,7 +35,7 @@ export default function Diagram() {
 
 const nodeTypes: NodeTypes = {};
 // generate nodes from svg descriptor
-paletteItems.forEach((item) => {
+kit.forEach((item) => {
   nodeTypes[item.name] = () => <IconNode svg={item.svg} name={item.name} />;
 });
 
