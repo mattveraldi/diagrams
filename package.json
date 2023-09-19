@@ -3,7 +3,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev",
+    "dev": "concurrently \"remix dev\" \"tailwind -i app/tailwind.css -o app/index.css -w\"",
     "start": "remix-serve build",
     "typecheck": "tsc"
   },
@@ -31,6 +31,7 @@
     "@remix-run/eslint-config": "^1.18.1",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
+    "concurrently": "^8.2.1",
     "eslint": "^8.38.0",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4"

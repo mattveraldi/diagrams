@@ -9,7 +9,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "tippy.js/dist/tippy.css"; // optional
-import stylesheet from "~/tailwind.css";
+import stylesheet from "~/index.css";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
