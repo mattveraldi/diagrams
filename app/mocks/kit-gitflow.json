@@ -1,0 +1,27 @@
+[
+  {
+    "name": "feature",
+    "svg": "\n <div class=\"w-6 h-6 bg-green-500 rounded-full\"></div>",
+    "description": "create a feature node"
+  },
+  {
+    "name": "hotfix",
+    "svg": "\n <div class=\"w-6 h-6 bg-red-500 rounded-full\"></div>",
+    "description": "create an hotfix node"
+  },
+  {
+    "name": "main",
+    "svg": "\n <div class=\"w-6 h-6 bg-cyan-500 rounded-full\"></div>",
+    "description": "create an main node"
+  },
+  {
+    "name": "develop",
+    "svg": "\n <div class=\"w-6 h-6 bg-purple-500 rounded-full\"></div>",
+    "description": "create a develop node"
+  },
+  {
+    "name": "release",
+    "svg": "\n <div class=\"w-6 h-6 bg-blue-200 rounded-full\"></div>",
+    "description": "create a release node"
+  }
+]
